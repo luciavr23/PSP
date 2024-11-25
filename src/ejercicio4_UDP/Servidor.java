@@ -21,8 +21,8 @@ public class Servidor {
 	                socketUDP.receive(peticion);
 
 	                // Convertir el mensaje recibido a número entero
-	                String mensaje = new String(peticion.getData(), 0, peticion.getLength()).trim();
-	                int numero = Integer.parseInt(mensaje);
+	                String mensaje = new String(peticion.getData());
+	                int numero = Integer.parseInt(mensaje.trim());
 	                System.out.println("Número recibido: " + numero);
 
 	                // Dirección y puerto del cliente
