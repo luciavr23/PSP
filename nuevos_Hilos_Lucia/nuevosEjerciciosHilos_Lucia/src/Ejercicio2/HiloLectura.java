@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class HiloLectura extends Thread {
 	private String fichero;
-	private static final Object lock = new Object();
+	private static final Object LOCK = new Object();
 
 	public HiloLectura(String fichero) {
 		this.fichero = fichero;
@@ -39,7 +39,7 @@ public class HiloLectura extends Thread {
 			String linea;
 			// Solo un hilo puede entrar en esta sección crítica a la vez
 			while (br.ready()) {
-				synchronized (lock) {
+				synchronized (LOCK) {
 					linea = br.readLine();
 					if (this.getName().equals("minusculas")) {
 						System.out.println(linea.toLowerCase());
